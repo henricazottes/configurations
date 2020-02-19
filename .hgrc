@@ -1,0 +1,6 @@
+[alias]
+lg=log -G -r 'sort(all(), "topo")' --template condensed
+
+[templates]
+condensed = '{ifeq(phase, "public", "\033[32m", "\033[33m")}{rev}:{shortest(node, 7)}\033[39m{if(tags, " tag: {tags}")}{if(topics, " \033[44m{topics}\033[39m\033[49m")} - {fill(desc, 60)|firstline}{ifcontains(desc|firstline,fill(desc|firstline,60),'','...')} \033[32m({age(date)}) \033[94m<{author|person}>'
+
